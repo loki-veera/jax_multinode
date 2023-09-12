@@ -1,0 +1,23 @@
+name: Tests
+
+on: [ push, pull_request ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11.0]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install nox
+      - name: Run flake8
+        run: nox -s lint
+      - name: Run mypy
+        run: nox -s typing

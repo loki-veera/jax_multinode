@@ -1,0 +1,38 @@
+#########################
+# Flake8 Configuration  #
+# (.flake8)             #
+#########################
+[flake8]
+ignore =
+    S101
+    S301
+    S403
+    S404
+    S603
+    W503
+    E203
+    E402
+    DAR101
+    DAR201
+    N400
+    E731
+exclude =
+    .tox,
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    build,
+    dist,
+    tests/fixtures/*,
+    *.pyc,
+    *.bib,
+    *.egg-info,
+    .cache,
+    .eggs,
+    data.
+max-line-length = 120
+max-complexity = 20
+import-order-style = pycharm
+application-import-names =
+    seleqt
+    tests
